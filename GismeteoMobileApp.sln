@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GismeteoMobileApp.Core", "src\GismeteoMobileApp.Core\GismeteoMobileApp.Core.csproj", "{AED249CC-C8C1-496F-A249-35278645E00B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GismeteoMobileApp.Core", "src\GismeteoMobileApp.Core\GismeteoMobileApp.Core.csproj", "{AED249CC-C8C1-496F-A249-35278645E00B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GismeteoMobileApp.UI", "src\GismeteoMobileApp.UI\GismeteoMobileApp.UI.csproj", "{6C817AA7-B2C1-40D6-871A-FEF5599991DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GismeteoMobileApp.UI", "src\GismeteoMobileApp.UI\GismeteoMobileApp.UI.csproj", "{6C817AA7-B2C1-40D6-871A-FEF5599991DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GismeteoMobileApp.Droid", "src\GismeteoMobileApp.Droid\GismeteoMobileApp.Droid.csproj", "{432F8188-1691-4604-9505-5CC2F3A39CB7}"
 EndProject
@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "!Solution Items", "!Solutio
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{2F4898CF-C85E-4F09-960B-363B046C4084}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +139,30 @@ Global
 		{87795C65-294C-4600-AAB3-D133F7543B1B}.Release|iPhoneSimulator.Deploy.0 = Release|iPhoneSimulator
 		{87795C65-294C-4600-AAB3-D133F7543B1B}.Release|x64.ActiveCfg = Release|iPhone
 		{87795C65-294C-4600-AAB3-D133F7543B1B}.Release|x86.ActiveCfg = Release|iPhone
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|ARM.Build.0 = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|x64.Build.0 = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Debug|x86.Build.0 = Debug|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|ARM.ActiveCfg = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|ARM.Build.0 = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|iPhone.Build.0 = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|x64.ActiveCfg = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|x64.Build.0 = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|x86.ActiveCfg = Release|Any CPU
+		{2F4898CF-C85E-4F09-960B-363B046C4084}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
