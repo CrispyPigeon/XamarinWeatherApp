@@ -35,33 +35,7 @@ namespace DAL.Services.RequestProvider
                 }
             }
 
-            IRestResponse<TResult> response = await restClient.ExecuteTaskAsync<TResult>(request);
-
-            return response.Data;
-        }
-
-        public async Task<TResult> MakeApiPostCall<TResult>(string url,
-                                                            List<(string, string)> parametersList = null,
-                                                            object data = null) where TResult : class
-        {
-            var client = new RestClient(url);
-            var request = new RestRequest(Method.POST)
-            {
-                OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; }
-            };
-
-            if (parametersList != null)
-            {
-                foreach ((string, string) parameter in parametersList)
-                {
-                    request.AddQueryParameter(parameter.Item1, parameter.Item2);
-                }
-            }
-
-            request.AddHeader("Content-Type", Consts.ContentTypeJson);
-            request.AddParameter(Consts.ContentTypeJson, JsonConvert.SerializeObject(data), ParameterType.RequestBody);
-
-            IRestResponse<TResult> response = await client.ExecuteTaskAsync<TResult>(request);
+            IRestResponse<TResult> response = await restClient.ExecuteAsync<TResult>(request);
 
             return response.Data;
         }

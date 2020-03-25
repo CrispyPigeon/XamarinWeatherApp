@@ -10,10 +10,5 @@ namespace DAL.Services.RequestProvider
         Task<TResult> MakeApiGetCall<TResult>(string url,
                                               List<(string,string)> parametersList = null)
                                               where TResult : class;
-
-        Task<TResult> MakeApiPostCall<TResult>(string url,
-                                               List<(string, string)> parametersList = null,
-                                               object data = null)
-                                               where TResult : class;
     }
 }
