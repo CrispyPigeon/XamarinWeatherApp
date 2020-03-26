@@ -70,6 +70,7 @@
     <Compile Include="Linker\LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\SQLite\SQLiteService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Styles\ColorPalette.cs" />
     <None Include="Entitlements.plist" />
@@ -98,6 +99,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.440</Version>
+    </PackageReference>
     <PackageReference Include="MvvmCross">
       <Version>6.4.2</Version>
     </PackageReference>

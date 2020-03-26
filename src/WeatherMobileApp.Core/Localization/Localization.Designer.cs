@@ -70,11 +70,47 @@ namespace WeatherMobileApp.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string ErrorTitle {
+            get {
+                return ResourceManager.GetString("ErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to en.
         /// </summary>
         internal static string Lang {
             get {
                 return ResourceManager.GetString("Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check your internet connection then press refresh button!.
+        /// </summary>
+        internal static string NoInternetConnectionMessage {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accept your location permission by accepting rule. Press refresh button!.
+        /// </summary>
+        internal static string NoLocationPermissionMessage {
+            get {
+                return ResourceManager.GetString("NoLocationPermissionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong..
+        /// </summary>
+        internal static string UknownErrorMessage {
+            get {
+                return ResourceManager.GetString("UknownErrorMessage", resourceCulture);
             }
         }
     }

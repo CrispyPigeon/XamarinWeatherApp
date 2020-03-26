@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Model.DbItems;
-using Model.Items.Login;
 using SQLite;
 
 namespace DBL
@@ -17,7 +16,6 @@ namespace DBL
             DatabasePath = databasePath;
         }
 
-
         public async Task ConnectToDatabase()
         {
             Connection = new SQLiteAsyncConnection(DatabasePath);
@@ -28,8 +26,7 @@ namespace DBL
 
         public async Task CreateTables()
         {
-            await Connection.CreateTablesAsync<LoginDbItem, MessageDbItem,
-                    SdsNotificationDbItem, CompanyOfferDbItem>()
+            await Connection.CreateTablesAsync<CountryDbItem, WeatherDbItem>()
                 .ConfigureAwait(false);
         }
 
@@ -40,7 +37,10 @@ namespace DBL
                 throw new NullReferenceException("No Connection with database");
             }
 
-            await Connection.DropTableAsync<Login>().ConfigureAwait(false);
+            await Connection.DropTableAsync<CountryDbItem>()
+                .ConfigureAwait(false);
+            await Connection.DropTableAsync<WeatherDbItem>()
+                .ConfigureAwait(false);
         }
     }
 }

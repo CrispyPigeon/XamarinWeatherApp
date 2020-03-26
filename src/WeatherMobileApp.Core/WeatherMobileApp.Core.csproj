@@ -5,12 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.440" />
     <PackageReference Include="MvvmCross" Version="6.4.2" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\..\DBL\DBL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
