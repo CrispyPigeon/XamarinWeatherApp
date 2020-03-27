@@ -47,5 +47,10 @@ namespace WeatherMobileApp.Core.ViewModels
                 return true;
             throw new InternetConnectionException();
         }
+
+        public void ShowAlert(string title, string message)
+        {
+            _dialogs.Alert(message, title);
+        }
     }
 }

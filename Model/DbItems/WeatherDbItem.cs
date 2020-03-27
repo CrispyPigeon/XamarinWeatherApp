@@ -10,13 +10,13 @@ namespace Model.DbItems
 {
     public class WeatherDbItem : IDbModel<int>
     {
-        [AutoIncrement]
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public DateTime DateTime { get; set; }
         public string Condition { get; set; }
         public double Temperature { get; set; }
+
         public int CountryId { get; set; }
 
         public WeatherDbItem() { }

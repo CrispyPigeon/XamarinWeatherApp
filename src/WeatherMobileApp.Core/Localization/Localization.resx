@@ -120,11 +120,36 @@
   <data name="AppName" xml:space="preserve">
     <value>Weather Mobile</value>
   </data>
+  <data name="CelsiusSymbol" xml:space="preserve">
+    <value> °C</value>
+  </data>
+  <data name="DateAndTimeTitle" xml:space="preserve">
+    <value>Date: </value>
+  </data>
   <data name="ErrorTitle" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="InfoMessage" xml:space="preserve">
+    <value>The weather app.
+In top view you can see current forecast weather.
+In bottom view you can see forecast for 24h.
+
+App loading info for 6 days. If you have no internet you can see loaded weathers. If you have no loaded weathers for this day, you need to turn on internet and press Resfresh button.
+
+App powered by OpenWeatherApi.
+To get premium version of app, pls pay 2000$/month.</value>
+  </data>
+  <data name="InfoTitle" xml:space="preserve">
+    <value>Info</value>
+  </data>
   <data name="Lang" xml:space="preserve">
     <value>en</value>
+  </data>
+  <data name="LatTitle" xml:space="preserve">
+    <value>Lat: </value>
+  </data>
+  <data name="LonTitle" xml:space="preserve">
+    <value>Lon: </value>
   </data>
   <data name="NoInternetConnectionMessage" xml:space="preserve">
     <value>Check your internet connection then press refresh button!</value>
@@ -132,7 +157,11 @@
   <data name="NoLocationPermissionMessage" xml:space="preserve">
     <value>Accept your location permission by accepting rule. Press refresh button!</value>
   </data>
+  <data name="RefreshTitle" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
   <data name="UknownErrorMessage" xml:space="preserve">
-    <value>Something went wrong.</value>
+    <value>Something went wrong.
+Turn on gps.</value>
   </data>
 </root>

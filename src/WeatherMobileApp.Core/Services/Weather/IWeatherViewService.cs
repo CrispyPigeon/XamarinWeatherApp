@@ -10,8 +10,6 @@ namespace WeatherMobileApp.Core.Services.Weather
     {
         WeatherItem GetCurrentWeather(List<WeatherItem> weathers);
 
-        List<WeatherItem> GetTodayWeathers(List<WeatherDbItem> weathers, CountryDbItem country);
-
-        List<WeatherItem> GetTodayWeathers(List<WeatherDbItem> weathers, List<CountryDbItem> countries);
+        List<WeatherItem> Get24HWeathers(List<WeatherDbItem> weathers, List<CountryDbItem> countries);
     }
 }

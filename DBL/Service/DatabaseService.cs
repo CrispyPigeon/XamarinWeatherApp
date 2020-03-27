@@ -190,15 +190,22 @@ namespace DBL.Service
 
         public async Task AddOrUpdate(T data)
         {
-            if (await Exists(data.Id))
+            try
             {
-                await Update(data)
-                    .ConfigureAwait(false);
+                if (await Exists(data.Id))
+                {
+                    await Update(data)
+                        .ConfigureAwait(false);
+                }
+                else
+                {
+                    await Add(data)
+                        .ConfigureAwait(false);
+                }
             }
-            else
+            catch (Exception e)
             {
-                await Add(data)
-                    .ConfigureAwait(false);
+                throw new Exception(e.ToString());
             }
         }
 

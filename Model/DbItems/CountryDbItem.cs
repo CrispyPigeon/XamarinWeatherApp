@@ -9,7 +9,6 @@ namespace Model.DbItems
 {
     public class CountryDbItem : IDbModel<int>
     {
-        [AutoIncrement]
         [PrimaryKey]
         public int Id { get; set; }
 
@@ -22,6 +21,7 @@ namespace Model.DbItems
 
         public CountryDbItem(City city)
         {
+            Id = city.id;
             Name = city.name;
             Index = city.country;
             Lontitude = city.coord.lon;

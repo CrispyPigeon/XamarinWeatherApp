@@ -18,16 +18,11 @@ namespace WeatherMobileApp.Core.Services.Weather
             return weathers.First(x => (x.Weather.DateTime - specifiedDate).Duration() == minDistance);
         }
 
-        public List<WeatherItem> GetTodayWeathers(List<WeatherDbItem> weathers, List<CountryDbItem> countries)
+        public List<WeatherItem> Get24HWeathers(List<WeatherDbItem> weathers, List<CountryDbItem> countries)
         {
-            var todayWeathers = weathers.Where(x => x.DateTime.Date == DateTime.Today.Date).ToList();
+            var increasedDateTime = DateTime.Now.AddDays(1);
+            var todayWeathers = weathers.Where(x => x.DateTime < increasedDateTime && x.DateTime > DateTime.Now).ToList();
             return DbItemsToFinallyItemsConverters.WeatherResponseToWeatherDbItems(todayWeathers, countries);
-        }
-
-        public List<WeatherItem> GetTodayWeathers(List<WeatherDbItem> weathers, CountryDbItem country)
-        {
-            var todayWeathers = weathers.Where(x => x.DateTime.Date == DateTime.Today.Date).ToList();
-            return DbItemsToFinallyItemsConverters.WeatherResponseToWeatherDbItems(weathers, country);
         }
     }
 }

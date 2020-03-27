@@ -33,32 +33,43 @@ namespace WeatherMobileApp.Core.ViewModels.Home
 
         private readonly IOpenWeatherApi _openWeatherApi;
         private readonly IWeatherViewService _weatherViewService;
-        private readonly IUserDialogs _dialogs;
 
         private readonly IDatabaseService<WeatherDbItem> _weatherDb;
         private readonly IDatabaseService<CountryDbItem> _countryDb;
 
         public IMvxAsyncCommand RefreshDataCommand { get; }
+        public IMvxAsyncCommand ShowInfoCommand { get; }
 
         public HomeViewModel(IOpenWeatherApi openWeatherApi,
                              IWeatherViewService weatherViewService,
-                             IUserDialogs dialogs,
                              IDatabaseService<WeatherDbItem> weatherDb,
-                             IDatabaseService<CountryDbItem> countryDb) : base(dialogs)
+                             IDatabaseService<CountryDbItem> countryDb)
         {
             _openWeatherApi = openWeatherApi;
             _weatherViewService = weatherViewService;
-            _dialogs = dialogs;
 
             _weatherDb = weatherDb;
             _countryDb = countryDb;
 
-            RefreshDataCommand = new MvxAsyncCommand(RefreshData);
+            RefreshDataCommand = new MvxAsyncCommand(RefreshDataAsync);
+            ShowInfoCommand = new MvxAsyncCommand(ShowInfoAsync);
         }
 
         public override async void ViewAppeared()
         {
             base.ViewAppeared();
+
+            await RefreshDataAsync();
+        }
+
+        private async Task RefreshDataAsync()
+        {
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status != PermissionStatus.Granted)
+            {
+                ShowAlert(Localization.Localization.ErrorTitle, Localization.Localization.UknownErrorMessage);
+                return;
+            }
 
             await LoadingCommand(async (Delegate stopLoading) =>
             {
@@ -66,7 +77,7 @@ namespace WeatherMobileApp.Core.ViewModels.Home
                 {
                     var weathersDb = await _weatherDb.GetAll();
                     var countriesDb = await _countryDb.GetAll();
-                    var todayWeathers = _weatherViewService.GetTodayWeathers(weathersDb, countriesDb);
+                    var todayWeathers = _weatherViewService.Get24HWeathers(weathersDb, countriesDb);
 
                     if (todayWeathers == null || todayWeathers.Count == 0)
                     {
@@ -85,9 +96,9 @@ namespace WeatherMobileApp.Core.ViewModels.Home
                             var country = ApiItemsToDbItemsConverters.WeatherResponseToCountryDbItem(result);
                             var weathers = ApiItemsToDbItemsConverters.WeatherResponseToWeatherDbItems(result, country.Id);
 
-                            SaveToDatabase(weathers, country);
+                            await SaveToDatabase(weathers, country);
 
-                            todayWeathers = _weatherViewService.GetTodayWeathers(weathers, country);
+                            todayWeathers = _weatherViewService.Get24HWeathers(weathers, new List<CountryDbItem> { country });
                         }
                     }
 
@@ -97,36 +108,28 @@ namespace WeatherMobileApp.Core.ViewModels.Home
                 catch (InternetConnectionException)
                 {
                     stopLoading.DynamicInvoke();
-                    _dialogs.Alert(Localization.Localization.NoInternetConnectionMessage,
-                                   Localization.Localization.ErrorTitle);
-                }
-                catch (PermissionException)
-                {
-                    stopLoading.DynamicInvoke();
-                    _dialogs.Alert(Localization.Localization.NoLocationPermissionMessage,
-                                   Localization.Localization.ErrorTitle);
+                    ShowAlert(Localization.Localization.ErrorTitle, Localization.Localization.NoInternetConnectionMessage);
                 }
                 catch
                 {
                     stopLoading.DynamicInvoke();
-                    _dialogs.Alert(Localization.Localization.UknownErrorMessage,
-                                   Localization.Localization.ErrorTitle);
+                    ShowAlert(Localization.Localization.ErrorTitle, Localization.Localization.UknownErrorMessage);
                 }
             });
         }
 
-        private void SaveToDatabase(List<WeatherDbItem> weathers, CountryDbItem country)
+        private async Task ShowInfoAsync()
         {
-            _countryDb.DeleteAll();
-            _weatherDb.DeleteAll();
-
-            _countryDb.AddOrUpdate(country);
-            _weatherDb.AddOrUpdateAll(weathers);
+            ShowAlert(Localization.Localization.InfoTitle, Localization.Localization.InfoMessage);
         }
 
-        private async Task RefreshData()
+        private async Task SaveToDatabase(List<WeatherDbItem> weathers, CountryDbItem country)
         {
-            
+            await _countryDb.DeleteAll();
+            await _weatherDb.DeleteAll();
+
+            await _countryDb.Add(country);
+            await _weatherDb.AddRange(weathers);
         }
     }
 }

@@ -70,6 +70,24 @@ namespace WeatherMobileApp.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  °C.
+        /// </summary>
+        internal static string CelsiusSymbol {
+            get {
+                return ResourceManager.GetString("CelsiusSymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date: .
+        /// </summary>
+        internal static string DateAndTimeTitle {
+            get {
+                return ResourceManager.GetString("DateAndTimeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string ErrorTitle {
@@ -79,11 +97,54 @@ namespace WeatherMobileApp.Core.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The weather app.
+        ///In top view you can see current forecast weather.
+        ///In bottom view you can see forecast for 24h.
+        ///
+        ///App loading info for 6 days. If you have no internet you can see loaded weathers. If you have no loaded weathers for this day, you need to turn on internet and press Resfresh button.
+        ///
+        ///App powered by OpenWeatherApi.
+        ///To get premium version of app, pls pay 2000$/month..
+        /// </summary>
+        internal static string InfoMessage {
+            get {
+                return ResourceManager.GetString("InfoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        internal static string InfoTitle {
+            get {
+                return ResourceManager.GetString("InfoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to en.
         /// </summary>
         internal static string Lang {
             get {
                 return ResourceManager.GetString("Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lat: .
+        /// </summary>
+        internal static string LatTitle {
+            get {
+                return ResourceManager.GetString("LatTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lon: .
+        /// </summary>
+        internal static string LonTitle {
+            get {
+                return ResourceManager.GetString("LonTitle", resourceCulture);
             }
         }
         
@@ -106,7 +167,17 @@ namespace WeatherMobileApp.Core.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something went wrong..
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        internal static string RefreshTitle {
+            get {
+                return ResourceManager.GetString("RefreshTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong.
+        ///Turn on gps..
         /// </summary>
         internal static string UknownErrorMessage {
             get {
